@@ -1,4 +1,12 @@
 name: Azure Pipelines
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)'
 variables:
   python.version: '3.7.6'
 stages:
