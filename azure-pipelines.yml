@@ -18,10 +18,10 @@ stages:
       displayName: 'Install terraform'
       inputs:
         terraformVersion: '0.12.26'
-    - script: 'cd terraform/environments/test && terraform init' 
+    - script: 'cd terraform/environment/test && terraform init' 
       displayName: 'terraform init'
     - script:
-        cd terraform/environments/test &&
+        cd terraform/environment/test &&
         terraform apply -auto-approve
         -var="public_key_path=$(publicSSH.secureFilePath)"
       displayName: 'terraform apply'
